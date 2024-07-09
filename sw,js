@@ -1,0 +1,41 @@
+// sw.js
+
+const CACHE_NAME = 'Starshomepage';
+const urlsToCache = [
+  './',
+  './manifest.json',
+  // 添加其他您初始希望缓存的静态资源路径，用于离线访问等场景
+];
+
+self.addEventListener('install', event => {
+  event.waitUntil(
+    caches.open(CACHE_NAME)
+      .then(cache => cache.addAll(urlsToCache))
+      .then(() => self.skipWaiting())
+  );
+});
+
+self.addEventListener('activate', event => {
+  event.waitUntil(
+    caches.keys().then(cacheNames => {
+      return Promise.all(
+        cacheNames.filter(cacheName => cacheName !== CACHE_NAME)
+          .map(cacheName => caches.delete(cacheName))
+      ).then(() => clients.claim());
+    })
+  );
+});
+
+self.addEventListener('fetch', event => {
+  // 修改这里，总是从网络获取最新内容，不优先使用缓存
+  event.respondWith(
+    fetch(event.request).then(response => {
+      // 可选择性地缓存获取到的响应，以便在离线时使用
+      // caches.open(CACHE_NAME).then(cache => cache.put(event.request, response.clone()));
+      return response;
+    }).catch(() => {
+      // 如果网络请求失败，尝试从缓存中获取（可选）
+      return caches.match(event.request);
+    })
+  );
+});
