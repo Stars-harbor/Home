@@ -31,7 +31,7 @@ export default {
     // 默认 /home.md 
     // null 则不显示
     // 填 Github 则使用Github profile的readme.md文件 
-    HomeMD: /home.md,
+    HomeMD: "/home.md",
 
     // 网页信息
     SiteHead: {
