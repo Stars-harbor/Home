@@ -1,1 +1,1 @@
-### 👋 Hi!
+### <p align="center">👋 Hi!</p>
