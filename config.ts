@@ -5,7 +5,7 @@ export default {
     Name: "❖星港◎Star☆",
 
     // 头像
-    Avatar: "https://bu.dusays.com/2023/09/27/6513053bebdb2.webp",
+    Avatar: "https://bu.dusays.com/2025/04/11/67f92f6fcfb26.webp",
 
     // 介绍
     Desc: "👋 Hi! 欢迎来到 ❖星港◎Star☆ 的主页",
@@ -48,6 +48,6 @@ export default {
         Desc: "👋 Hi! 这里是 ❖星港◎Star☆ 的主页",
     },
 
-    SiteBackground: "url(https://bu.dusays.com/2023/10/02/651a4d79bb412.jpg) center/cover",
+    SiteBackground: "url(https://bu.dusays.com/2025/04/11/67f9334b1a605.webp) center/cover",
 
 }
